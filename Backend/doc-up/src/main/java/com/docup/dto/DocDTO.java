@@ -54,7 +54,7 @@ public class DocDTO {
 		dto.setId(obj.getId());
 		dto.setPassword(obj.getPassword());
 		dto.setPhone(obj.getPhone());
-		dto.setSpeciality(obj.getUsername());
+		dto.setSpeciality(obj.getSpeciality());
 		dto.setUsername(obj.getUsername());
 		
 		return dto;

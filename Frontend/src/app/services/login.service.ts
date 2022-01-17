@@ -10,6 +10,8 @@ export class LoginService {
 
   constructor(private http:HttpClient) { }
 
+  docUrl:string = "http://localhost:4001/doc/getAll"
+
   loginUser(loginData: any): Observable<any>{
     return this.http.post(`${baseUrl}/user/login`, loginData)
 
@@ -17,6 +19,10 @@ export class LoginService {
 
   isUserLoggedIn(){
     
+  }
+
+  getAlldocs(): Observable<any>{
+    return this.http.get(this.docUrl);
   }
 
 }
