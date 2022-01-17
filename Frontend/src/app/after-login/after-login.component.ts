@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Doc } from '../common/doc';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-after-login',
@@ -9,11 +11,15 @@ export class AfterLoginComponent implements OnInit {
 
   data: any;
 
-  constructor() { }
+  constructor(private login:LoginService) { }
+  listofdocs!: Doc[];
+  random!:string;
 
   ngOnInit(): void {
-    // this.data = localStorage.getItem("userData");
-    // console.log(JSON.parse(this.data));
+    this.random = "common man !"
+    this.login.getAlldocs().subscribe(data=>{
+      this.listofdocs = data;
+    });
   }
 
 }
