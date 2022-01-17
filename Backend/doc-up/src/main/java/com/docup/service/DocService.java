@@ -1,5 +1,7 @@
 package com.docup.service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,5 +30,17 @@ public class DocService {
 		Optional<Doc> ob = repo.findById(id);
 		Doc obj = ob.get();
 		return DocDTO.prepareDTO(obj);
+	}
+	
+	public List<DocDTO> getAllDocs(){
+		List<Doc> list = new ArrayList<>();
+		list = repo.findAll();
+		
+		List<DocDTO> dtoList = new ArrayList<>();
+		for(Doc doc : list) {
+			dtoList.add(DocDTO.prepareDTO(doc));
+		}
+		
+		return dtoList;
 	}
 }
