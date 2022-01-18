@@ -24,6 +24,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
     margin-bottom: 20px !important;
 }
 
+.ml{
+    margin-left: 100px !important;
+}
+
+.mr{
+    margin-right: 50px !important;
+}
+
 
 
 

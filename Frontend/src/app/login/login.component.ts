@@ -3,6 +3,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { LoginService } from '../services/login.service';
+import {User} from '../common/user'
 
 @Component({
   selector: 'app-login',
@@ -40,13 +41,18 @@ export class LoginComponent implements OnInit {
     }
 
     this.login.loginUser(this.loginData).subscribe(
-      (data: any)=>{
+      (data: User)=>{
         // console.log(data);
-        Swal.fire('Login Successfull !!','welcome  ' + data.username, 'success')
+        // console.log(data.username)
         
-      this.route.navigate(['/after-login'])
-      // localStorage.setItem("user", data)
-      // localStorage.setItem("userData", JSON.stringify(data))
+        if(data.username===null){
+          Swal.fire('Wrong username or passord')
+        }
+        else{
+          Swal.fire('Login Successfull !!','welcome  ' + data.username, 'success')
+          localStorage.setItem("userEmail", data.email)
+          this.route.navigate(['/after-login'])
+        }
       },
       (error)=>
       {

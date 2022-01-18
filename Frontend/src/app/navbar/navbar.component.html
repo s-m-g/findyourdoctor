@@ -1,24 +1,49 @@
 <mat-toolbar color="primary">
+  <!-- we have to redirect to user home page when clicking here-->
     <button [routerLink]="'/'"
      mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
       <mat-icon>podcasts</mat-icon>
     </button>
     <span>Find-Your-Doctor</span>
     <span class="example-spacer"></span>
-    <button [routerLink]="'/login'"
-     mat-icon-button class="example-icon favorite-icon" 
-    aria-label="Example icon-button with heart icon">
-      <!-- <mat-icon class="ml20">login</mat-icon> -->
-      Login
-    </button>
 
-    <button [routerLink]="'/signup'"
-     mat-icon-button class="example-icon favorite-icon mr20 ml20" 
-    aria-label="Example icon-button with heart icon">
-        <!-- <mat-icon>login</mat-icon> -->
-        Register
-
+    <div *ngIf="!isLoggedIn()">
+          <!-- LOGIN BUTTON -->
+        <button [routerLink]="'/login'"
+        mat-icon-button class="example-icon favorite-icon" 
+      aria-label="Example icon-button with heart icon">
+        <!-- <mat-icon class="ml20">login</mat-icon> -->
+        Login
       </button>
+
+      <!-- SIGNUP BUTTON -->
+      <button [routerLink]="'/signup'"
+        mat-icon-button class="example-icon favorite-icon mr20 ml20" 
+      aria-label="Example icon-button with heart icon">
+          <!-- <mat-icon>login</mat-icon> -->
+          Register
+
+        </button>
+    </div>
+
+    <div *ngIf="isLoggedIn()">
+
+      <span></span>
+      <button *ngIf="getEmail()"
+        mat-icon-button class="example-icon favorite-icon" 
+        aria-label="Example icon-button with heart icon">
+        {{this.userEmail}}
+      </button>
+
+      <button (click)="logOut()"
+        mat-icon-button class="example-icon favorite-icon mr ml" 
+        aria-label="Example icon-button with heart icon">
+        Logout
+      </button>
+
+     
+    </div>
+    
     <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
       <mat-icon>share</mat-icon>
     </button> -->
