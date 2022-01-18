@@ -46,3 +46,19 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.font1{
+font-family: 'Oswald', sans-serif;
+}
+
+.font2{
+    font-family: 'Mochiy Pop P One';
+}
+
+.font3{
+    font-family: 'The Nautigal', cursive;
+}
+
+.font4{
+    font-family: 'Anton';
+}

@@ -19,6 +19,9 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import { AfterLoginComponent } from './after-login/after-login.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import {MatDividerModule} from '@angular/material/divider';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 
 
@@ -44,7 +47,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatCardModule,
     MatToolbarModule,
     MatIconModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDividerModule,
+    MatProgressBarModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
