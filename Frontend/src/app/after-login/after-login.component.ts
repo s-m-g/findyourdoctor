@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Doc } from '../common/doc';
 import { LoginService } from '../services/login.service';
+import { ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
+
+import { LoginComponent } from '../login/login.component';
+import { MakeAppointmentComponent } from '../make-appointment/make-appointment.component';
+import { SignupComponent } from '../signup/signup.component';
 
 @Component({
   selector: 'app-after-login',
@@ -8,10 +13,13 @@ import { LoginService } from '../services/login.service';
   styleUrls: ['./after-login.component.css']
 })
 export class AfterLoginComponent implements OnInit {
-
+  
+  closeResult: any;
   data: any;
 
-  constructor(private login:LoginService) { }
+  constructor(private login:LoginService,
+                private modalService:NgbModal) { }
+
   listofdocs!: Doc[];
   random!:string;
 
@@ -21,5 +29,10 @@ export class AfterLoginComponent implements OnInit {
       this.listofdocs = data;
     });
   }
+  
+  onClick(){
+    this.modalService.open(MakeAppointmentComponent)
+  }
+  
 
 }
