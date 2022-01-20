@@ -22,6 +22,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatDividerModule} from '@angular/material/divider';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { MakeAppointmentComponent } from './make-appointment/make-appointment.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatSelectModule} from '@angular/material/select';
+
 
 
 
@@ -32,7 +38,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     SignupComponent,
     LoginComponent,
     HomeComponent,
-    AfterLoginComponent
+    AfterLoginComponent,
+    MakeAppointmentComponent
   ],
   imports: [
     BrowserModule,
@@ -50,10 +57,15 @@ import {MatGridListModule} from '@angular/material/grid-list';
     ReactiveFormsModule,
     MatDividerModule,
     MatProgressBarModule,
-    MatGridListModule
+    MatGridListModule,
+    NgbModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
+  
 })
 export class AppModule {
 }
