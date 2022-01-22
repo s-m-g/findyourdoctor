@@ -35,7 +35,7 @@ export class AfterLoginComponent implements OnInit {
 
     let data = {
       docId: doc.id,
-      userId: localStorage.getItem("userEmail")
+      userId: localStorage.getItem("userId")
     }
 
     modalRef.componentInstance.fromParent = data;

@@ -61,6 +61,8 @@ export class MakeAppointmentComponent implements OnInit {
   }
 
   formSubmit(){
+    this.appointment.docId=this.docId
+    this.appointment.userId=this.userId
     this.app.makeAppointment(this.appointment).subscribe(data=>{
       console.log(data)
     })

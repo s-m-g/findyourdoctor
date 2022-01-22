@@ -40,7 +40,7 @@ public class UserService {
 	}
 	
 	
-	public String userLogin(UserDto obj) {
+	public Long userLogin(UserDto obj) {
 		
 		String userData = obj.getUsername();
 		String userPassword = obj.getPassword();
@@ -49,12 +49,12 @@ public class UserService {
 		for(User user : list) {
 			if(user.getUsername().equals(userData)) {
 				if(user.getPassword().equals(userPassword)) {
-					return user.getEmail();
+					return user.getId();
 				}
 			}	
 		}
 
-		return "";
+		return -1L;
 		
 		}
 //	

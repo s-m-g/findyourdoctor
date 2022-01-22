@@ -41,11 +41,11 @@ export class LoginComponent implements OnInit {
     }
 
     this.login.loginUser(this.loginData).subscribe(
-      (data: string)=>{
-        // console.log(data);
+      (data: any)=>{
+        console.log(data);
         // console.log(data.username)
         
-        if(data.length==0){
+        if(data===-1){
           //  Swal.fire('Wrong username or passord', 'error')
           Swal.fire({
             icon: 'error',
@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit {
         }
         else{
           Swal.fire('Login Successfull !!','welcome  ' + data, 'success')
-          localStorage.setItem("userEmail", data)
+          localStorage.setItem("userId", data)
           this.route.navigate(['/after-login'])
         }
       },
