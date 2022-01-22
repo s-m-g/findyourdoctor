@@ -13,7 +13,7 @@ export class LoginService {
   docUrl:string = "http://localhost:4001/doc/getAll"
 
   loginUser(loginData: any): Observable<any>{
-    return this.http.post(`${baseUrl}/user/login`, loginData)
+    return this.http.post(`${baseUrl}/user/login`, loginData, {responseType: 'text'})
 
   }
 

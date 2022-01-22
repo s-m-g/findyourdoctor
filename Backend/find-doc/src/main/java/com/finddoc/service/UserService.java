@@ -19,7 +19,7 @@ public class UserService {
 	@Autowired
 	UserRepo userRepo;
 	
-	public UserDto userRegister(UserDto userDto) throws Exception {
+	public Long userRegister(UserDto userDto) throws Exception {
 		User user = new User();
 		user = UserDto.prepareEntity(userDto);
 		
@@ -35,14 +35,12 @@ public class UserService {
 			local = userRepo.saveAndFlush(user);
 		}
 		
-		return UserDto.prepareDto(local);
+		return local.getId();
 		
 	}
 	
 	
-	public UserDto userLogin(UserDto obj) {
-		
-		UserDto resultobject = new UserDto();
+	public String userLogin(UserDto obj) {
 		
 		String userData = obj.getUsername();
 		String userPassword = obj.getPassword();
@@ -51,12 +49,12 @@ public class UserService {
 		for(User user : list) {
 			if(user.getUsername().equals(userData)) {
 				if(user.getPassword().equals(userPassword)) {
-					return UserDto.prepareDto(user);
+					return user.getEmail();
 				}
 			}	
 		}
 
-		return resultobject;
+		return "";
 		
 		}
 //	

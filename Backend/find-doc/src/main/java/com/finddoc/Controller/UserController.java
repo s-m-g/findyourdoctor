@@ -24,14 +24,14 @@ public class UserController {
 	UserService service;
 	
 	@PostMapping(value="/")
-	public ResponseEntity<UserDto> userRegister(@RequestBody UserDto userDto ) throws Exception{
+	public ResponseEntity<Long> userRegister(@RequestBody UserDto userDto ) throws Exception{
 		return ResponseEntity.ok(service.userRegister(userDto));
 		
 	}
 	
 	
 	@PostMapping(value="/login")
-	public ResponseEntity<UserDto> userLogin(@RequestBody UserDto objDTO){
+	public ResponseEntity<String> userLogin(@RequestBody UserDto objDTO){
 		return ResponseEntity.ok(
 				service.userLogin(objDTO)
 				);

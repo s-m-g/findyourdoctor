@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { Component, Input, OnInit } from '@angular/core';
+import {NgbModal, ModalDismissReasons, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {NgbDateStruct, NgbCalendar} from '@ng-bootstrap/ng-bootstrap';
+import { Appointment } from '../common/appointment';
+import { AppointmentService } from '../services/appointment.service';
 
 
 
@@ -17,13 +19,27 @@ export class MakeAppointmentComponent implements OnInit {
 
   
   
-
+  @Input() fromParent: any;
 
   closeResult = '';
+  userId!:number;
+  docId!:number;
 
-  constructor(private modalService: NgbModal,private calendar: NgbCalendar) {}
+  // appointment={
+  //   username:"",
+  //   number:"",
+  //   appdate:"",
+  //   slot:""
+  // }
+
+  appointment:Appointment = new Appointment();
+
+  constructor(private modalService: NgbModal,private calendar: NgbCalendar, public activeModal: NgbActiveModal, private app:AppointmentService) {}
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    // throw new Error('Method not implemented.');
+    this.userId = this.fromParent.userId;
+    this.docId = this.fromParent.docId;
+    // console.log(this.userId, this.docId);
   }
 
   open(content: any) {
@@ -44,6 +60,11 @@ export class MakeAppointmentComponent implements OnInit {
     }
   }
 
+  formSubmit(){
+    this.app.makeAppointment(this.appointment).subscribe(data=>{
+      console.log(data)
+    })
+  }
 
 }
 
