@@ -49,28 +49,29 @@
             Appointment
           </h1>
           
-          <form >
+          <form (ngSubmit)="formSubmit()">
             <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Full Name</mat-label>
-                <input matInput name="username" placeholder="Enter your full name" required>
+                <input matInput name="username" placeholder="Enter your full name" required [(ngModel)]="appointment.username">
                  
             </mat-form-field>
         
             <mat-form-field class="full-width" appearance="outline">
               <mat-label>Mobile Number</mat-label>
-              <input matInput type="number" name="number" placeholder="Enter here" required>
+              <input matInput type="number" name="number" placeholder="Enter here" required [(ngModel)]="appointment.number">
             </mat-form-field>
 
             
             
             <div class="container mb10">
               <label mb10 for="appointment" >Select Date : </label>
-              <input type="date" id="appointment" name="appointment">
+              <input type="date" id="appdate" name="appdate" [(ngModel)]="appointment.appdate">
             </div>
             
 
             <mat-card >
-              <select class="full-width"  aria-label="Select Time Slot">
+              <label>Slot</label>
+              <select class="full-width"  aria-label="Select Time Slot" name="slot" [(ngModel)]="appointment.slot">
                 <option selected>Select Time-Slot</option>
                 <option value="1">9:00am-12:00pm</option>
                 <option value="2">3:00pm-5:00pm</option>
@@ -95,12 +96,12 @@
             <!-- </mat-option> -->
 
                          
-
+            <section>
+              <button  type="submit" mat-raised-button color="primary" >Submit</button>
+            </section>
           </form>
 
-          <section>
-            <button  mat-raised-button color="primary">Submit</button>
-          </section>
+          
         </mat-card>
       </div>
     </div>

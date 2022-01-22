@@ -11,22 +11,22 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
   constructor(private router: Router) { }
 
-  userEmail!:any;
+  userId!:any;
 
   ngOnInit(): void {
   }
 
   isLoggedIn(){
-    return localStorage.getItem("userEmail")
+    return localStorage.getItem("userId")
   }
 
   logOut(){
-    localStorage.removeItem("userEmail");
+    localStorage.removeItem("userId");
     this.router.navigate(['/home'])
   }
 
   getEmail(){
-    this.userEmail =  localStorage.getItem("userEmail");
+    this.userId =  localStorage.getItem("userId");
     return true;
   }
 

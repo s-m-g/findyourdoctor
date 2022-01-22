@@ -3,6 +3,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { UserService } from '../services/user.service';
 import Swal from 'sweetalert2'
 import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,7 +15,7 @@ export class SignupComponent implements OnInit {
 
   exform!: FormGroup; 
 
-  constructor(private userService:UserService, private snack: MatSnackBar) { }
+  constructor(private userService:UserService, private snack: MatSnackBar, private router:Router) { }
 
   public user = {
     username: '',
@@ -57,7 +58,8 @@ export class SignupComponent implements OnInit {
       //success 
       console.log(data);
       // alert('success');
-      Swal.fire('Successfully Done!!','user id is ' + data.id, 'success')
+      Swal.fire('Successfully Done!!','user id is ' + data, 'success')
+      this.router.navigate(['/login'])
     },
     (error)=>{
       console.log(error);

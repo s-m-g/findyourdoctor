@@ -30,8 +30,15 @@ export class AfterLoginComponent implements OnInit {
     });
   }
   
-  onClick(){
-    this.modalService.open(MakeAppointmentComponent)
+  onClick(doc:any){
+    const modalRef = this.modalService.open(MakeAppointmentComponent);
+
+    let data = {
+      docId: doc.id,
+      userId: localStorage.getItem("userId")
+    }
+
+    modalRef.componentInstance.fromParent = data;
   }
   
 
