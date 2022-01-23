@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
         console.log(data);
         // console.log(data.username)
         
-        if(data===-1){
+        if(data<0){
           //  Swal.fire('Wrong username or passord', 'error')
           Swal.fire({
             icon: 'error',

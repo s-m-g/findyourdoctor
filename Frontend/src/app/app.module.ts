@@ -27,6 +27,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
+import { AppointmentComponent } from './appointment/appointment.component';
 
 
 
@@ -39,7 +40,8 @@ import {MatSelectModule} from '@angular/material/select';
     LoginComponent,
     HomeComponent,
     AfterLoginComponent,
-    MakeAppointmentComponent
+    MakeAppointmentComponent,
+    AppointmentComponent
   ],
   imports: [
     BrowserModule,
