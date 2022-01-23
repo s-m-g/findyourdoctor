@@ -15,4 +15,8 @@ export class AppointmentService {
   makeAppointment(appointment:Appointment): Observable<any>{
       return this.http.post(this.url+"/create", appointment);
   }
+
+  getAppointment(userId: any): Observable<any>{
+    return this.http.get(this.url+"/get/"+userId)
+  }
 }
