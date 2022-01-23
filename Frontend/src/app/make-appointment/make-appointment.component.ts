@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import {NgbModal, ModalDismissReasons, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {NgbDateStruct, NgbCalendar} from '@ng-bootstrap/ng-bootstrap';
 import { Appointment } from '../common/appointment';
@@ -34,7 +35,7 @@ export class MakeAppointmentComponent implements OnInit {
 
   appointment:Appointment = new Appointment();
 
-  constructor(private modalService: NgbModal,private calendar: NgbCalendar, public activeModal: NgbActiveModal, private app:AppointmentService) {}
+  constructor(private router: Router, private modalService: NgbModal,private calendar: NgbCalendar, public activeModal: NgbActiveModal, private app:AppointmentService) {}
   ngOnInit(): void {
     // throw new Error('Method not implemented.');
     this.userId = this.fromParent.userId;
@@ -65,6 +66,9 @@ export class MakeAppointmentComponent implements OnInit {
     this.appointment.userId=this.userId
     this.app.makeAppointment(this.appointment).subscribe(data=>{
       console.log(data)
+      this.modalService.dismissAll()
+      alert("appointment successfull")
+      this.router.navigate(['/appointment'])
     })
   }
 
