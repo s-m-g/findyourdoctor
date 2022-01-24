@@ -33,5 +33,12 @@ public class DocAppointmentService {
 		
 		return listOfAppointmentDTO;
 	}
+	
+	//To delete
+	
+	public String deleteAppointment(Long appointmentId) {
+		repo.deleteById(appointmentId);
+		return "Deleted Successfullly";
+	}
 
 }

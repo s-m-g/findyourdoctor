@@ -1,1 +1,25 @@
-<p>appointment works!</p>
+<table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Doc ID</th>
+                <th>Number</th>
+                <th>Date</th>
+                <th>Slot</th>
+                <th>Update</th>
+                <th>Delete</th>
+                <th>AppointmentId</th>
+            </tr>
+        </thead>
+        <tbody>
+        
+        <tr *ngFor="let u of appointment">
+          <td>{{u.docId}}</td>    
+          <td>{{u.number}}</td>
+          <td>{{u.appdate}}</td>
+          <td>{{u.slot}}</td>
+          <td><button class="btn btn-success" type="button">Update</button></td>
+          <td><button class="btn btn-danger" type="button" (click)="deleteAppointment(u.appointmentId)">Delete</button></td>
+          <td>{{u.appointmentId}}</td>
+         
+        </tbody>
+</table>

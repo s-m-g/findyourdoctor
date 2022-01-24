@@ -19,4 +19,10 @@ export class AppointmentService {
   getAppointment(userId: any): Observable<any>{
     return this.http.get(this.url+"/get/"+userId)
   }
-}
+
+  deleteApp(appointmentId: any): Observable<any>{
+    return this.http.delete(this.url+"/delete/"+appointmentId, {responseType: 'text'})
+  }
+
+  }
+
