@@ -25,6 +25,8 @@ export class MakeAppointmentComponent implements OnInit {
   closeResult = '';
   userId!:number;
   docId!:number;
+  update:boolean=false
+  alreadyExisitingAppointment!:Appointment
 
   // appointment={
   //   username:"",
@@ -40,6 +42,8 @@ export class MakeAppointmentComponent implements OnInit {
     // throw new Error('Method not implemented.');
     this.userId = this.fromParent.userId;
     this.docId = this.fromParent.docId;
+    this.update = this.fromParent.update
+    this.alreadyExisitingAppointment = this.fromParent.appointmentData
     // console.log(this.userId, this.docId);
   }
 
@@ -70,6 +74,11 @@ export class MakeAppointmentComponent implements OnInit {
       alert("appointment successfull")
       this.router.navigate(['/appointment'])
     })
+  }
+
+
+  formUpdate(){
+    
   }
 
 }

@@ -36,74 +36,153 @@
 
 
 
-
-<div class="bootstrap-wrapper mb10">
-  <div class="container">
-    <div class="row" style="margin-top: 20px;">
-      <div class="col-md-12 ">
-        <mat-card>
-          <div class="container text-center">
-          </div>
-          <h1 class="text-center">
-            <mat-icon style="margin-right: 2%;" aria-hidden="false" aria-label="Example home icon">book</mat-icon>Book
-            Appointment
-          </h1>
-          
-          <form (ngSubmit)="formSubmit()">
-            <mat-form-field class="full-width" appearance="outline">
-                <mat-label>Full Name</mat-label>
-                <input matInput name="username" placeholder="Enter your full name" required [(ngModel)]="appointment.username">
-                 
-            </mat-form-field>
-        
-            <mat-form-field class="full-width" appearance="outline">
-              <mat-label>Mobile Number</mat-label>
-              <input matInput type="number" name="number" placeholder="Enter here" required [(ngModel)]="appointment.number">
-            </mat-form-field>
-
-            
-            
-            <div class="container mb10">
-              <label mb10 for="appointment" >Select Date : </label>
-              <input type="date" id="appdate" name="appdate" [(ngModel)]="appointment.appdate">
+<div *ngIf="!update">
+  <div class="bootstrap-wrapper mb10">
+    <div class="container">
+      <div class="row" style="margin-top: 20px;">
+        <div class="col-md-12 ">
+          <mat-card>
+            <div class="container text-center">
             </div>
+            <h1 class="text-center">
+              <mat-icon style="margin-right: 2%;" aria-hidden="false" aria-label="Example home icon">book</mat-icon>Book
+              Appointment
+            </h1>
             
-
-            <mat-card >
-              <label>Slot</label>
-              <select class="full-width"  aria-label="Select Time Slot" name="slot" [(ngModel)]="appointment.slot">
-                <option selected>Select Time-Slot</option>
-                <option value="1">9:00am-12:00pm</option>
-                <option value="2">3:00pm-5:00pm</option>
-                
-              </select>
-            </mat-card>
-<!-- 
-            <mat-form-field >
-              <mat-label>Choose a date</mat-label>
-              <input matInput [matDatepicker]="picker">
-              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-              <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field> -->
-
-
-
-            <!-- <mat-form-field class="full-width" appearance="fill">
-                            <mat-label>Time-Slot</mat-label>
-                            <mat-select> -->
-            <!-- <mat-option *ngFor="let food of foods" [value]="food.value"> -->
-            <!-- {{food.viewValue}} -->
-            <!-- </mat-option> -->
-
-                         
-            <section>
-              <button  type="submit" mat-raised-button color="primary" >Submit</button>
-            </section>
-          </form>
-
+            <form (ngSubmit)="formSubmit()">
+              <mat-form-field class="full-width" appearance="outline">
+                  <mat-label>Full Name</mat-label>
+                  <input matInput name="username" placeholder="Enter your full name" required [(ngModel)]="appointment.username">
+                   
+              </mat-form-field>
           
-        </mat-card>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Mobile Number</mat-label>
+                <input matInput type="number" name="number" placeholder="Enter here" required [(ngModel)]="appointment.number">
+              </mat-form-field>
+  
+              
+              
+              <div class="container mb10">
+                <label mb10 for="appointment" >Select Date : </label>
+                <input type="date" id="appdate" name="appdate" [(ngModel)]="appointment.appdate">
+              </div>
+              
+  
+              <mat-card >
+                <label>Slot</label>
+                <select class="full-width"  aria-label="Select Time Slot" name="slot" [(ngModel)]="appointment.slot">
+                  <option selected>Select Time-Slot</option>
+                  <option value="1">9:00am-12:00pm</option>
+                  <option value="2">3:00pm-5:00pm</option>
+                  
+                </select>
+              </mat-card>
+  <!-- 
+              <mat-form-field >
+                <mat-label>Choose a date</mat-label>
+                <input matInput [matDatepicker]="picker">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field> -->
+  
+  
+  
+              <!-- <mat-form-field class="full-width" appearance="fill">
+                              <mat-label>Time-Slot</mat-label>
+                              <mat-select> -->
+              <!-- <mat-option *ngFor="let food of foods" [value]="food.value"> -->
+              <!-- {{food.viewValue}} -->
+              <!-- </mat-option> -->
+  
+                           
+              <section>
+                <button  type="submit" mat-raised-button color="primary" >Submit</button>
+              </section>
+            </form>
+  
+            
+          </mat-card>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+<div *ngIf="update">
+
+  <div class="bootstrap-wrapper mb10">
+    <div class="container">
+      <div class="row" style="margin-top: 20px;">
+        <div class="col-md-12 ">
+          <mat-card>
+            <div class="container text-center">
+            </div>
+            <h1 class="text-center">
+              <mat-icon style="margin-right: 2%;" aria-hidden="false" aria-label="Example home icon">book</mat-icon>Book
+              Appointment
+            </h1>
+            
+            <form (ngSubmit)="formUpdate()">
+              <mat-form-field class="full-width" appearance="outline">
+                  <mat-label>Full Name</mat-label>
+                  <input matInput value={{alreadyExisitingAppointment.username}} name="username"  required>
+                   
+              </mat-form-field>
+          
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Mobile Number</mat-label>
+                <input matInput  value={{alreadyExisitingAppointment.number}} type="number" name="number" placeholder="Enter here" required >
+              </mat-form-field>
+  
+              
+              
+              <div class="container mb10">
+                <label mb10 for="appointment" >Select Date : </label>
+                <input type="date"  value={{alreadyExisitingAppointment.appdate}} id="appdate" name="appdate">
+                <!-- <input type="date" id="appdate" name="appdate" [(ngModel)]="appointment.appdate"> -->
+              </div>
+              
+  
+              <mat-card >
+                <label>Slot</label>
+                <select class="full-width"  aria-label="Select Time Slot" name="slot"  value={{alreadyExisitingAppointment.slot}} >
+                  <option selected>Select Time-Slot</option>
+                  <option value="1">9:00am-12:00pm</option>
+                  <option value="2">3:00pm-5:00pm</option>
+                  
+                </select>
+              </mat-card>
+  <!-- 
+              <mat-form-field >
+                <mat-label>Choose a date</mat-label>
+                <input matInput [matDatepicker]="picker">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field> -->
+  
+  
+  
+              <!-- <mat-form-field class="full-width" appearance="fill">
+                              <mat-label>Time-Slot</mat-label>
+                              <mat-select> -->
+              <!-- <mat-option *ngFor="let food of foods" [value]="food.value"> -->
+              <!-- {{food.viewValue}} -->
+              <!-- </mat-option> -->
+  
+                           
+              <section>
+                <button  type="submit" mat-raised-button color="primary" >Update</button>
+              </section>
+            </form>
+  
+            
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
