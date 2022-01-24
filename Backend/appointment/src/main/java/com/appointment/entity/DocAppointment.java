@@ -19,6 +19,7 @@ public class DocAppointment {
     private String slot;
     private long userId;
     private long docId;
+   
 
     
     public long getAppointmentId() {

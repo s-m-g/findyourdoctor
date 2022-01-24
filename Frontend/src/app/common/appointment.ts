@@ -5,4 +5,5 @@ export class Appointment{
     slot!:string;
     userId!:number;
     docId!:number;
+    appointmentId!: number
 }
