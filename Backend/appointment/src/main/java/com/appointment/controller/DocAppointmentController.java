@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,7 +29,9 @@ public class DocAppointmentController {
 	@PostMapping(value="/create")
 	public ResponseEntity<Long> createAppointment(@RequestBody DocAppointmentDTO dto){
 		
+		System.out.println("Slot is : "+dto.getSlot());
 		return ResponseEntity.ok(service.createAppointment(dto));
+		
 	}
 	
 	@GetMapping(value="/get/{userId}")
@@ -41,6 +44,11 @@ public class DocAppointmentController {
 	public ResponseEntity<String> deleteAppointment(@PathVariable Long appointmentId){
 		String result = service.deleteAppointment(appointmentId);
 		return ResponseEntity.ok(result);
+	}
+	
+	@PutMapping(value="/update")
+	public ResponseEntity<Boolean> updateAppointment(@RequestBody DocAppointmentDTO dto){
+		return ResponseEntity.ok(service.updateAppointment(dto));
 	}
 	
 	

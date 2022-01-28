@@ -72,9 +72,9 @@
               <mat-card >
                 <label>Slot</label>
                 <select class="full-width"  aria-label="Select Time Slot" name="slot" [(ngModel)]="appointment.slot">
-                  <option selected>Select Time-Slot</option>
-                  <option value="1">9:00am-12:00pm</option>
-                  <option value="2">3:00pm-5:00pm</option>
+                  <!-- <option selected>Select Time-Slot</option> -->
+                  <option value="9:00am-12:00pm">9:00am-12:00pm</option>
+                  <option value="3:00pm-5:00pm">3:00pm-5:00pm</option>
                   
                 </select>
               </mat-card>
@@ -123,33 +123,33 @@
               Appointment
             </h1>
             
-            <form (ngSubmit)="formUpdate()">
+            <form #updatedForm="ngForm" (ngSubmit)="formUpdate()">
               <mat-form-field class="full-width" appearance="outline">
                   <mat-label>Full Name</mat-label>
-                  <input matInput value={{alreadyExisitingAppointment.username}} name="username"  required>
-                   
+                  <input matInput name="username"  required [(ngModel)]="updateAppointment.username">
+                  <!-- <input matInput name="username"  required [(ngModel)]="appointment.username"> -->
               </mat-form-field>
           
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Mobile Number</mat-label>
-                <input matInput  value={{alreadyExisitingAppointment.number}} type="number" name="number" placeholder="Enter here" required >
+                <input matInput name="number"  required [(ngModel)]="updateAppointment.number">
               </mat-form-field>
   
               
               
               <div class="container mb10">
                 <label mb10 for="appointment" >Select Date : </label>
-                <input type="date"  value={{alreadyExisitingAppointment.appdate}} id="appdate" name="appdate">
+                <input type="date" id="appdate" name="appdate" [(ngModel)]="updateAppointment.appdate">
                 <!-- <input type="date" id="appdate" name="appdate" [(ngModel)]="appointment.appdate"> -->
               </div>
               
   
               <mat-card >
                 <label>Slot</label>
-                <select class="full-width"  aria-label="Select Time Slot" name="slot"  value={{alreadyExisitingAppointment.slot}} >
-                  <option selected>Select Time-Slot</option>
-                  <option value="1">9:00am-12:00pm</option>
-                  <option value="2">3:00pm-5:00pm</option>
+                <select class="full-width"  aria-label="Select Time Slot" name="slot" [(ngModel)]="updateAppointment.slot">
+                  <!-- <option selected>Select Time-Slot</option> -->
+                  <option value="9:00am-12:00pm">9:00am-12:00pm</option>
+                  <option value="3:00pm-5:00pm">3:00pm-5:00pm</option>
                   
                 </select>
               </mat-card>

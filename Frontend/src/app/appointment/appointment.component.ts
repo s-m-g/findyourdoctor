@@ -42,12 +42,11 @@ export class AppointmentComponent implements OnInit {
   }
 
   updateAppointment(appointment: Appointment){
-    console.log(appointment)
     const modalRef = this.modalService.open(MakeAppointmentComponent);
 
     let data = {
-      docId: this.docId,
-      userId: this.userId,
+      docId: appointment.docId,
+      userId: appointment.userId,
       update: true,
       appointmentData: appointment
     }
