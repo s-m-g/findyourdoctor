@@ -5,9 +5,10 @@
                 <th>Number</th>
                 <th>Date</th>
                 <th>Slot</th>
+                <th>AppointmentId</th>
+                <th>UserId</th>
                 <th>Update</th>
                 <th>Delete</th>
-                <th>AppointmentId</th>
             </tr>
         </thead>
         <tbody>
@@ -17,9 +18,10 @@
           <td>{{u.number}}</td>
           <td>{{u.appdate}}</td>
           <td>{{u.slot}}</td>
-          <td><button class="btn btn-success" type="button">Update</button></td>
-          <td><button class="btn btn-danger" type="button" (click)="deleteAppointment(u.appointmentId)">Delete</button></td>
           <td>{{u.appointmentId}}</td>
-         
+          <td>{{u.userId}}</td>
+          <td><button class="btn btn-success" type="button" (click)="updateAppointment(u)">Update</button></td>
+          <td><button class="btn btn-danger" type="button" (click)="deleteAppointment(u.appointmentId)">Delete</button></td>
+          
         </tbody>
 </table>

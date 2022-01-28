@@ -24,5 +24,9 @@ export class AppointmentService {
     return this.http.delete(this.url+"/delete/"+appointmentId, {responseType: 'text'})
   }
 
+  updateAppointment(appointment: Appointment):Observable<any>{
+    return this.http.put(this.url+"/update", appointment , {responseType: 'text'});
+  }
+
   }
 

@@ -40,5 +40,29 @@ public class DocAppointmentService {
 		repo.deleteById(appointmentId);
 		return "Deleted Successfullly";
 	}
+	
+	public Boolean updateAppointment(DocAppointmentDTO dto) {
+		
+		boolean changed = false;
+		
+		//we have a dto obj with some data
+		System.out.println("target app id : "+dto.getAppointmentId());
+		List<DocAppointment> list = repo.findAll();
+		for(DocAppointment app : list) {
+			System.out.println(app.getAppointmentId());
+			if(app.getAppointmentId() == dto.getAppointmentId()) {
+				System.out.println("found");
+				app.setAppdate(dto.getAppdate());
+				app.setSlot(dto.getSlot());
+				app.setUsername(dto.getUsername());
+				app.setNumber(dto.getNumber());
+				
+				repo.saveAndFlush(app);
+				changed=true;
+				break;
+			}
+		}
+		return changed;
+	}
 
 }
