@@ -1,12 +1,13 @@
 <table class="table table-striped">
         <thead>
             <tr>
-                <th>Doc ID</th>
+                <!-- <th>Doc ID</th> -->
                 <th>Number</th>
                 <th>Date</th>
                 <th>Slot</th>
                 <th>AppointmentId</th>
-                <th>UserId</th>
+                <!-- <th>UserId</th> -->
+                
                 <th>Update</th>
                 <th>Delete</th>
             </tr>
@@ -14,12 +15,13 @@
         <tbody>
         
         <tr *ngFor="let u of appointment">
-          <td>{{u.docId}}</td>    
+          <!-- <td>{{u.docId}}</td>     -->
+          
           <td>{{u.number}}</td>
           <td>{{u.appdate}}</td>
           <td>{{u.slot}}</td>
           <td>{{u.appointmentId}}</td>
-          <td>{{u.userId}}</td>
+          <!-- <td>{{u.userId}}</td> -->
           <td><button class="btn btn-success" type="button" (click)="updateAppointment(u)">Update</button></td>
           <td><button class="btn btn-danger" type="button" (click)="deleteAppointment(u.appointmentId)">Delete</button></td>
           
