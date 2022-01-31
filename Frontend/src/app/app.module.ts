@@ -28,6 +28,10 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
 import { AppointmentComponent } from './appointment/appointment.component';
+import { DoctorComponent } from './Doctor/doctor/doctor.component';
+import { DocLoginComponent } from './Doctor/doc-login/doc-login.component';
+import { DocSignupComponent } from './Doctor/doc-signup/doc-signup.component';
+
 
 
 
@@ -41,7 +45,11 @@ import { AppointmentComponent } from './appointment/appointment.component';
     HomeComponent,
     AfterLoginComponent,
     MakeAppointmentComponent,
-    AppointmentComponent
+    AppointmentComponent,
+    DoctorComponent,
+    DocLoginComponent,
+    DocSignupComponent,
+  
   ],
   imports: [
     BrowserModule,

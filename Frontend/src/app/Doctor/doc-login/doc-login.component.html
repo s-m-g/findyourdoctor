@@ -6,28 +6,22 @@
                     <div class="container text-center">
                         <img src="../../assets/icon2.jpg" alt="">
                     </div>
-
-
                     <h1 class="text-center">Login Here</h1>
 
-                    {{ loginData | json }}
-
-                    <form (ngSubmit)="formSubmit()">
+                    <form>
 
                         <mat-form-field class="full-width" appearance="outline">
-                            <mat-label>User Name</mat-label>
-                            <input matInput [(ngModel)]="loginData.username" name="username" placeholder="Enter here"
-                                type="text" required>
-                            <mat-hint>Valid username</mat-hint>
+                            <mat-label>Doctor Name</mat-label>
+                            <input matInput name="docname" placeholder="Enter here" type="text" required>
+                            <mat-hint>Valid docname</mat-hint>
 
                         </mat-form-field>
 
                         <!-- < Password field > -->
 
                         <mat-form-field class="full-width" appearance="outline">
-                            <mat-label>User Password</mat-label>
-                            <input [(ngModel)]="loginData.password" name="password" type="password" matInput
-                                placeholder="Enter here" required>
+                            <mat-label>Password</mat-label>
+                            <input name="password" type="password" matInput placeholder="Enter here" required>
                             <!-- <mat-icon matSuffix></mat-icon> -->
                         </mat-form-field>
 
@@ -37,8 +31,6 @@
                             <button class="ml10" type="submit" mat-raised-button color="accent">Reset</button>
 
                         </div>
-
-
                     </form>
                 </mat-card>
             </div>
